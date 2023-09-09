@@ -4,3 +4,4 @@
 - Puntos extra por subir a GitHub
 - Puntos extra por paginado
 - Puntos extra por buena interfaz
+- Codificación que usará para calificar (UTF-8, Windows-1252)

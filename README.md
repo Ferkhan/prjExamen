@@ -5,3 +5,9 @@
 - Puntos extra por paginado
 - Puntos extra por buena interfaz
 - Codificación que usará para calificar (UTF-8, Windows-1252)
+- Qué tan recomendable usar SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame frame = new JFrame("JFrame con JPanel");
+            }
+        });
+        

@@ -13,11 +13,6 @@ public class FrameLogin extends JFrame {
         setCustomization();
         addComponents();
 
-        setVisible(true);
-    }
-
-    private void addComponents() {
-        add(new PanelLogin(), BorderLayout.CENTER);
     }
 
     private void setCustomization() {
@@ -26,7 +21,15 @@ public class FrameLogin extends JFrame {
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
         setResizable(true);             // cambiar esta propiedad
-
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
+
+    private void addComponents() {
+        add(new PanelLogin());
+        
+    }
+
+    
+
 }

@@ -3,6 +3,7 @@ package DataAccess;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -12,15 +13,18 @@ public abstract class SQLiteDataHelper {
     private final String RUTA_DATABASE      = "jdbc:sqlite:database\\BaseDatos.db"; 
     protected final String TABLA_USUARIO    = "USUARIO";
     protected final String TABLA_CREDENCIAL = "CREDENCIAL";
-    private Connection conn;
+    protected PreparedStatement prst;
+    protected Connection conn;
     protected Statement stmt;
-    protected ResultSet rs;
+    protected ResultSet rst;
     protected String consultaSQL;
+    
 
     public SQLiteDataHelper () throws AppException {
         conn = getConnection();
         stmt = null;
-        rs   = null;
+        rst  = null;
+        prst = null;
         consultaSQL = null;
     }
 
@@ -42,13 +46,15 @@ public abstract class SQLiteDataHelper {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            rs   = stmt.executeQuery(consultaSQL);
+            rst   = stmt.executeQuery(consultaSQL);
         } catch (SQLException e) {
             throw new AppException(e, getClass(), "getResultSet()");
         }
 
-        return rs;
+        return rst;
     }
     
     public abstract ResultSet readRegistrosActivos() throws AppException;
+
+    public abstract ResultSet readById(int idRegistro) throws AppException;
 }

@@ -37,11 +37,13 @@ public class CredencialBL {
                     listaCredenciales.add(credencial);
                 }
 
+                rs.close();
                 return listaCredenciales;
             }
-
-            return null;
             
+            rs.close();
+            return null;
+
         } catch (SQLException error) {
             throw new AppException(error, getClass(), "getRegistrosActivos()");
         }

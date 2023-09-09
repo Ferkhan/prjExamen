@@ -17,5 +17,10 @@ public class CredencialDAC extends SQLiteDataHelper{
                     + " WHEN   Estado = 1 ";
         return getResultSet(consultaSQL);
     }
+
+    @Override
+    public ResultSet readById(int idCredencial) throws AppException {
+        return null;
+    }
     
 }
